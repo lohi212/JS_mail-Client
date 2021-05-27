@@ -9,21 +9,21 @@
     {
       "id": "2",
       "title": "Sample Mail",
-      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "description": "I follow the react community and google community a lot and get inspired by these folks and the work that they have done. Few are Addy Osmani - The Frontend Advocate at Google who largely works on performance and chrome tools, Dan Abramov - the creator of redux and currently leading the react team. Ryan Florence - creator of react router and remix. So I follow these people for updates in the frontend community and these folks inspire me to do something similar.",
       "read": false,
       "star": false
     },
     {
       "id": "3",
       "title": "Demo Mail",
-      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "description": "Unlike the olden days of frontend , the frontend is evolving within itself. With the introduction of libraries and frameworks, the frontend has completely changed the way it was earlier. Now things like state management,  conditional rendering, performance etc have moved to the browser and this has made the frontend vast and there is a huge scope of development. Now the web has moved to mobile as well and PWAs are playing a vital role. Moving forward the Page Speed Insights would be something to be considered and the web pages will have to be developed keeping CLS, LCP, FID in mind.",
       "read": true,
       "star": true
     },
     {
       "id": "4",
       "title": "Recruitment Mail 2",
-      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "description": "SquadStack has products in various tech stacks. I went through the products AuctM, ClassifyIt, SQUADIQ and found that I have been doing something similar in my current organization. AuctM has CRM integrations and automations which I have already done in the past. I have worked on Hubspot, Zoho, Marketo integrations and I feel I can contribute my best in this vertical.My expertise in frontend and pixel perfect UI will help me in building the Workflows which are a part of ClassifyIT. All the three products shows that they have a data driven UI and it will be an exciting opportunity for me to contribute in such product. I can build complex UIs and reusable components which can be used throughout the products.",
       "read": true,
       "star": true
     },
