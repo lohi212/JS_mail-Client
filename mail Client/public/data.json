@@ -1,0 +1,44 @@
+[
+    {
+      "id": "1",
+      "title": "Recruitment Mail",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": true,
+      "star": false
+    },
+    {
+      "id": "2",
+      "title": "Sample Mail",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": false,
+      "star": false
+    },
+    {
+      "id": "3",
+      "title": "Demo Mail",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": true,
+      "star": true
+    },
+    {
+      "id": "4",
+      "title": "Recruitment Mail 2",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": true,
+      "star": true
+    },
+    {
+      "id": "5",
+      "title": "Recruitment Mail 3",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": false,
+      "star": false
+    },
+    {
+      "id": "6",
+      "title": "Recruitment Mail 4",
+      "description": "We would like to acknowledge that we have received your application for the post of Web - SDE. Our HR representative will review your application and send you a personal response shortly. Thank you for your patience.",
+      "read": false,
+      "star": true
+    }
+  ]

@@ -1,0 +1,43 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mailer-container {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25%;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+.preview-container {
+    width: 75%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.mailer-card {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 100px;
+}
+
+.mailer-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: cadetblue;
+}
+
+.description-container {
+    height: 70%;
+    width: 70%;
+    margin: 15%;
+}
