@@ -10,12 +10,35 @@ body {
     align-items: center;
     height: 100vh;
 }
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.header p {
+    float: left;
+    display: block;
+    /* color: #f2f2f2; */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-right: 1px solid #ccc;
+}
 
 .sidebar {
-    width: 25%;
+    width: 33%;
     height: 100vh;
     overflow-y: auto;
     border-right: 1px solid #ccc;
+    overflow-x: hidden;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
 }
 
 .preview-container {
