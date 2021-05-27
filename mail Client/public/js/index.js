@@ -4,12 +4,37 @@ class Mailer {
         this.mailerData = [];
         this.starred = [];
         this.unStarred = [];
-        this.sideBarContainer = document.getElementById('sidebar');
+        this.headerCard = document.getElementById("header");
+        this.sideBarList = document.getElementById('list');
         this.previewContainer = document.getElementById('preview-container');
     }
 
     initMailer = () => {
         this.fetchMailer();
+        this.createHeader();
+    }
+
+    createHeader = () => {
+        const navBar= document.createElement('div'); 
+        const tab = `
+            <p class="all" id="all">All</p>
+            <p class="star" id="star">Star</p>
+            <p class="unstar" id="unstar">Unstar</p>
+        `;
+        navBar.innerHTML = tab;
+        this.headerCard.append(navBar); 
+
+        navBar.addEventListener("click",(event) => {
+            console.log(event.target.id);
+            if(event.target.id === "star") {
+                this.createStarList();
+            } else if(event.target.id === "unstar") {
+                this.createUnstarList();
+            } else {
+                this.createMailerList();
+            }
+        })
+        // document.getElementById("star").addEventListener("click",this.createStarList());
     }
 
     fetchMailer = () => {
@@ -17,38 +42,42 @@ class Mailer {
         .then(res => res.json())
         .then(json => {
             this.mailerData = json;
+            this.starred = json.filter(element =>  element.star === true); 
+            this.unStarred = json.filter(element =>  element.star === false);
+
             this.createMailerList();
         })
     }
 
-    createMailerList = () => {       
+    createMailerList = () => {  
+       
         this.mailerData.forEach((data) => {
             const mailerCard = document.createElement('div');
             const card = `
-                <div class="mailer-card" id="all-${data.id}" >
+                <div class="mailer-card" id="${data.id}" >
                     <h1 class="mailer-card-title">${data?.title}</h1>
                 </div>
             `;
             mailerCard.innerHTML = card;
-            this.sideBarContainer.append(mailerCard);
+            this.sideBarList.append(mailerCard);
 
-            document.getElementById(data.id).addEventListener("click",(event) => {
-                // document.getElementById(data.id).style.cssText="background-color:#cccc"
-                const previewCard = document.createElement('div');
-                const description = `
-                    <div class="description-container" id="description-conatiner-${data.id}">
-                        <p>${data?.description}<p>
-                    </div>
-                `;
-                previewCard.innerHTML = description;
+            // document.getElementById(data.id).addEventListener("click",(event) => {
+            //     document.getElementById(data.id).style.cssText="background-color:#cccc"
+            //     const previewCard = document.createElement('div');
+            //     const description = `
+            //         <div class="description-container" id="description-conatiner-${data.id}">
+            //             <p>${data?.description}<p>
+            //         </div>
+            //     `;
+            //     previewCard.innerHTML = description;
         
-                this.previewContainer.appendChild(previewCard);               
-            })
+            //     this.previewContainer.append(previewCard);               
+            // })
         })
     }
 
-    fetchStarred = () => {
-        starred.forEach((data) => {
+    createStarList = () => {
+        this.starred.forEach((data) => {
             const mailerCard = document.createElement('div');
             const card = `
                 <div class="mailer-card" id="star-${data.id}" >
@@ -56,25 +85,26 @@ class Mailer {
                 </div>
             `;
             mailerCard.innerHTML = card;
-            this.sideBarContainer.append(mailerCard);
+            console.log(mailerCard)
+            this.sideBarList.append(mailerCard);
 
-            document.getElementById(data.id).addEventListener("click",(event) => {
-                document.getElementById(data.id).style.cssText="background-color:#cccc"
-                const previewCard = document.createElement('div');
-                const description = `
-                    <div class="description-container" id="description-conatiner-${data.id}">
-                        <p>${data?.description}<p>
-                    </div>
-                `;
-                previewCard.innerHTML = description;
+            // document.getElementById(data.id).addEventListener("click",(event) => {
+            //     document.getElementById(data.id).style.cssText="background-color:#cccc"
+            //     const previewCard = document.createElement('div');
+            //     const description = `
+            //         <div class="description-container" id="description-conatiner-${data.id}">
+            //             <p>${data?.description}<p>
+            //         </div>
+            //     `;
+            //     previewCard.innerHTML = description;
         
-                this.previewContainer.appendChild(previewCard);               
-            })
+            //     this.previewContainer.appendChild(previewCard);               
+            // })
 
         })
     }
    
-    fetchUnstarred = () => {
+    createUnstarList = () => {
         
         unStarred.forEach((data) => {
             const mailerCard = document.createElement('div');
@@ -84,20 +114,20 @@ class Mailer {
                 </div>
             `;
             mailerCard.innerHTML = card;
-            this.sideBarContainer.append(mailerCard);
+            this.sideBarList.append(mailerCard);
 
-            document.getElementById(data.id).addEventListener("click",(event) => {
-                document.getElementById(data.id).style.cssText="background-color:#cccc"
-                const previewCard = document.createElement('div');
-                const description = `
-                    <div class="description-container" id="description-conatiner-${data.id}">
-                        <p>${data?.description}<p>
-                    </div>
-                `;
-                previewCard.innerHTML = description;
+            // document.getElementById(data.id).addEventListener("click",(event) => {
+            //     document.getElementById(data.id).style.cssText="background-color:#cccc"
+            //     const previewCard = document.createElement('div');
+            //     const description = `
+            //         <div class="description-container" id="description-conatiner-${data.id}">
+            //             <p>${data?.description}<p>
+            //         </div>
+            //     `;
+            //     previewCard.innerHTML = description;
         
-                this.previewContainer.appendChild(previewCard);               
-            })
+            //     this.previewContainer.appendChild(previewCard);               
+            // })
 
         }) 
     }
