@@ -39,12 +39,17 @@ class Mailer {
         this.headerCard.append(navBar); 
 
         navBar.addEventListener("click",(event) => {
+            const newArr = this.mailerData.map(e => {
+                const obj = JSON.parse(localStorage.getItem(e?.id));
+                return obj
+            })
+            this.mailerData = newArr;
             if(event.target.id === "star") {
-                this.starred = json.filter(element =>  element.star === true); 
-                this.createStarList('star');
+                this.starred = this.mailerData.filter(element =>  element.star === true); 
+                this.createMailerList('star');
             } else if(event.target.id === "unstar") {
-                this.unStarred = json.filter(element =>  element.star === false);
-                this.createUnstarList('unstar');
+                this.unStarred = this.mailerData.filter(element =>  element.star === false);
+                this.createMailerList('unstar');
             } else {
                 this.createMailerList('all');
             }
@@ -56,7 +61,10 @@ class Mailer {
         .then(res => res.json())
         .then(json => {
             this.mailerData = json;
-            this.createMailerList();
+            this.createMailerList('all');
+            json.forEach(e => {
+                localStorage.setItem(e?.id,JSON.stringify(e))
+            })
         })
     }
 
@@ -75,7 +83,7 @@ class Mailer {
         newArr.forEach((data) => {
             const mailerCard = document.createElement('div');
             const card = `
-                <div class="mailer-card" id="${data.id}" data-mail-description="${data?.description}">
+                <div class="mailer-card" id="${data?.id}" data-mail-description="${data?.description}" data-mail-status="${data?.star}">
                     <h1 class="mailer-card-title">${data?.title}</h1>
                 </div>
             `;
@@ -90,8 +98,15 @@ class Mailer {
     }
 
     displayDescription = (target) => {
-        const previewCard =  document.createElement('div');
-        target.style.cssText="background-color:#cccc"
+        const previewCard =  document.createElement('div');       
+        const starred = this.starStatus(`${target?.dataset.mailStatus}`);        
+        target.classList.add('selected-mail');
+        
+        const button = document.createElement("Button");
+        button.setAttribute("id","button-status");
+        button.innerHTML = starred;
+        button.classList.add('button-status');
+
         const descriptionCard = document.createElement('div');
         const description = `
             <div class="description-container" id="description-conatiner-${target?.id}">
@@ -99,9 +114,30 @@ class Mailer {
             </div>
         `;
         descriptionCard.innerHTML = description;
+        previewCard.append(button)
         previewCard.append(descriptionCard);
         this.previewContainer.innerHTML = previewCard.innerHTML;
-               
+        
+        document.getElementById("button-status").addEventListener("click",(event) => {
+            const starredMail = JSON.parse(localStorage.getItem(target?.id));
+            let newObj = {...starredMail};
+            newObj.star = !starredMail.star;
+            localStorage.setItem(target?.id,JSON.stringify(newObj))
+            if(starred === "star") {
+                button.innerHTML = "Unstar";
+            } else {
+                button.innerHTML = "Star"
+            }
+            
+        })
+    }
+
+    starStatus = (flag) => {
+        if(flag === "true") {
+            return "star";
+        } else {
+            return "Unstar"
+        }
     }
 }
 

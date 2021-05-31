@@ -66,3 +66,16 @@ body {
     width: 70%;
     margin: 15%;
 }
+
+.selected-mail {
+    background-color: #ccc;
+}
+
+.button-status {
+    font-size: 8pt;
+    margin-top: 10px;
+    margin-right: 10px;
+    position:absolute;
+    top:0;
+    right:0;
+}
